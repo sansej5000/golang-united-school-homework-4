@@ -1,27 +1,62 @@
 package string_sum
+//packege strconv
 
 import (
 	"errors"
+	"fmt"
+	"regexp"
+	"strings"
 )
 
-//use these errors as appropriate, wrapping them with fmt.Errorf function
+//используйте эти ошибки соответствующим образом, обернув их функцией fmt.Errorf
 var (
-	// Use when the input is empty, and input is considered empty if the string contains only whitespace
+	re = regexp.MustCompile(`(?m)([-+]{0,})\s{0,}(\d{1,})\s{0,}([-+]{1,})\s{0,}(\d{1,})`)
+	// Используйте, когда ввод пуст, и ввод считается пустым, если строка содержит только пробелы
 	errorEmptyInput = errors.New("input is empty")
-	// Use when the expression has number of operands not equal to two
+	// Используйте, когда выражение имеет количество операндов, не равное двум
 	errorNotTwoOperands = errors.New("expecting two operands, but received more or less")
 )
 
-// Implement a function that computes the sum of two int numbers written as a string
-// For example, having an input string "3+5", it should return output string "8" and nil error
-// Consider cases, when operands are negative ("-3+5" or "-3-5") and when input string contains whitespace (" 3 + 5 ")
+// Реализуйте функцию, которая вычисляет сумму двух целых чисел, записанных в виде строки.
+// Например, имея входную строку «3+5», он должен возвращать выходную строку «8» и нулевую ошибку.
+// Рассмотрим случаи, когда операнды отрицательные ("-3+5" или "-3-5") и когда входная строка содержит пробелы ("3 + 5").
 //
-//For the cases, when the input expression is not valid(contains characters, that are not numbers, +, - or whitespace)
-// the function should return an empty string and an appropriate error from strconv package wrapped into your own error
-// with fmt.Errorf function
+//Для случаев, когда входное выражение неверно (содержит символы, не являющиеся числами, +, - или пробел)
+// функция должна возвращать пустую строку и соответствующую ошибку из пакета strconv, завернутую в вашу собственную ошибку
+// с функцией fmt.Errorf
 //
-// Use the errors defined above as described, again wrapping into fmt.Errorf
+// Используйте ошибки, определенные выше, как описано, снова завернув в fmt.Errorf
 
 func StringSum(input string) (output string, err error) {
+
+	var one, two, three, four string
+
+	whitespace := strings.ReplaceAll(input, " ", "")
+
+	fmt.Println(len(whitespace))
+
+	if len(whitespace) == 0 {
+		fmt.Println("input is empty")
+	}
+
+	for _, match := range re.FindAllStringSubmatch(input, -1) {
+		one = match[1]
+		two = match[2]
+		three = match[3]
+		four = match[4]
+	}
+
+
+	fmt.Println(one)
+	fmt.Println(two)
+	fmt.Println(three)
+	fmt.Println(four)
+
+	fmt.Println(strings.HasPrefix(input, "-"))
 	return "", nil
+}
+
+func main() {
+	itog := StringSum("-3+5")
+	fmt.Println(itog)
 }
