@@ -30,6 +30,7 @@ var (
 func StringSum(input string) (output string, err error) {
 
 	var one, two, three, four string
+	var two_dig, four_dig int
 
 	whitespace := strings.ReplaceAll(input, " ", "")
 
@@ -51,8 +52,25 @@ func StringSum(input string) (output string, err error) {
 	fmt.Println(two)
 	fmt.Println(three)
 	fmt.Println(four)
+	
+	if one_str != "-" && one_str != "+" && one_str != "" || three_str != "-" && three_str != "+" {
+		fmt.Println("expecting two operands, but received more or less")
+	}
 
-	fmt.Println(strings.HasPrefix(input, "-"))
+	two_dig, _ = strconv.Atoi(one_str + two_str)
+	//if err == nil {
+	//	fmt.Println("\nAfter:")
+	//	fmt.Printf("Type: %T ", two_dig)
+	//	fmt.Printf("\nValue: %v", two_dig)
+	//}
+
+	four_dig, _ = strconv.Atoi(three_str + four_str)
+	//fmt.Println(two_dig)
+	//fmt.Println(four_dig)
+
+	sum := two_dig + four_dig
+	fmt.Println("Сумма:", sum)
+	
 	return "", nil
 }
 
