@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	re                  = regexp.MustCompile(`(?m)([-+]\d+)?([-+]\d+)?([-+]\d+)?`)
+	re                  = regexp.MustCompile(`(?m)([-+]?[\d\w]+)?([-+][\d\w]+)?([-+][\d\w]+)?`)
 	errorEmptyInput     = errors.New("input is empty")
 	errorNotTwoOperands = errors.New("expecting two operands, but received more or less")
 )
