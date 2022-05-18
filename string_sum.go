@@ -22,10 +22,7 @@ func StringSum(input string) (output string, err error) {
 	}
 	for _, match := range re.FindAllStringSubmatch(whitespace, -1) {
 		one_str = match[1]
-		fmt.Println(one_str)
 		two_str = match[2]
-		fmt.Println(two_str)
-
 		if match[2] == "" || match[3] != "" {
 			return "", fmt.Errorf("%w", errorNotTwoOperands)
 		}
