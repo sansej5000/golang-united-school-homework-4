@@ -2,7 +2,7 @@ import {
   "testing"
   "fmt"}
 
-func EmptyInputTest(t *testing. T){
+func TestEmptyInput(t *testing. T){
   str:=" "
   _,err:=StringSum(str)
   if err==nil{
@@ -10,7 +10,7 @@ func EmptyInputTest(t *testing. T){
   }
 }
 
-func LetterInFirstOperandTest(t *testing. T){
+func TestLetterInFirstOperand(t *testing. T){
   str:="2s+5"
   _,err:=StringSum(str)
   if err==nil{
@@ -18,7 +18,7 @@ func LetterInFirstOperandTest(t *testing. T){
   }
 }
 
-func LetterInSecondOperandTest(t *testing. T){
+func TestLetterInSecondOperand(t *testing. T){
   str:="2+5s"
   _,err:=StringSum(str)
   if err==nil{
@@ -26,7 +26,7 @@ func LetterInSecondOperandTest(t *testing. T){
   }
 }
 
-func FirstOperandNegativeTest(t *testing. T){
+func TestFirstOperandNegative(t *testing. T){
   str:="-2+5"
   res,_:=StringSum(str)
   if res!="3"{
@@ -34,7 +34,7 @@ func FirstOperandNegativeTest(t *testing. T){
   }
 }
 
-func SecondOperandNegativeTest(t *testing. T){
+func TestSecondOperandNegative(t *testing. T){
   str:="2-5"
   res,_:=StringSum(str)
   if res!="-3"{
@@ -42,7 +42,7 @@ func SecondOperandNegativeTest(t *testing. T){
   }
 }
 
-func BothOperandNegativeTest(t *testing. T){
+func TestBothOperandNegative(t *testing. T){
   str:="-2-5"
   res,_:=StringSum(str)
   if res!="-7"{
@@ -50,7 +50,7 @@ func BothOperandNegativeTest(t *testing. T){
   }
 }
 
-func BothOperandPositiveTest(t *testing. T){
+func TestBothOperandPositive(t *testing. T){
   str:="2+5"
   res,_:=StringSum(str)
   if res!="7"{
@@ -58,7 +58,7 @@ func BothOperandPositiveTest(t *testing. T){
   }
 }
 
-func WithWhispaceTest(t *testing. T){
+func TestWithWhispace(t *testing. T){
   str:=" 2 + 5 "
   res,_:=StringSum(str)
   if res!="7"{
@@ -66,7 +66,7 @@ func WithWhispaceTest(t *testing. T){
   }
 }
 
-func ThreeOperandsTest(t *testing. T){
+func TestThreeOperands(t *testing. T){
   str:="2+5-3 "
   _,err:=StringSum(str)
   if err==nil{
@@ -74,7 +74,7 @@ func ThreeOperandsTest(t *testing. T){
   }
 }
 
-func OneOperandsTest(t *testing. T){
+func TestOneOperands(t *testing. T){
   str:="-3 "
   _,err:=StringSum(str)
   if err==nil{
@@ -82,7 +82,7 @@ func OneOperandsTest(t *testing. T){
   }
 }
 
-func StringSumTest(t *testing. T){
+func TestStringSum(t *testing. T){
   str:="2+3"
   res,_:=StringSum(str)
   rst,_:=fmt.Printf("%T", res)
