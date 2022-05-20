@@ -30,7 +30,7 @@ func TestFirstOperandNegative(t *testing. T){
   str:="-2+5"
   res,_:=StringSum(str)
   if res!="3"{
-    t.Errorf("result is wrong, the result should be '3'")
+    t.Errorf("Result = %d; want 3", res)
   }
 }
 
@@ -38,7 +38,7 @@ func TestSecondOperandNegative(t *testing. T){
   str:="2-5"
   res,_:=StringSum(str)
   if res!="-3"{
-    t.Errorf("result is wrong, the result should be '-3'")
+    t.Errorf("Result = %d; want -3", res)
   }
 }
 
@@ -46,7 +46,7 @@ func TestBothOperandNegative(t *testing. T){
   str:="-2-5"
   res,_:=StringSum(str)
   if res!="-7"{
-    t.Errorf("result is wrong, the result should be '-7'")
+    t.Errorf("Result = %d; want -7", res)
   }
 }
 
@@ -54,7 +54,7 @@ func TestBothOperandPositive(t *testing. T){
   str:="2+5"
   res,_:=StringSum(str)
   if res!="7"{
-    t.Errorf("result is wrong, the result should be '7'")
+    t.Errorf("Result = %d; want 7", res)
   }
 }
 
@@ -62,7 +62,7 @@ func TestWithWhispace(t *testing. T){
   str:=" 2 + 5 "
   res,_:=StringSum(str)
   if res!="7"{
-    t.Errorf("result is wrong, the result should be '7'")
+    t.Errorf("Result = %d; want 7", res)
   }
 }
 
