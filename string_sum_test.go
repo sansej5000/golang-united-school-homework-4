@@ -83,12 +83,3 @@ func TestOneOperands(t *testing.T) {
 		t.Errorf("result is wrong, the result should be 'expecting two operands, but received more or less'")
 	}
 }
-
-// func StringSumTest(t *testing.T) {
-// 	str := "2+3"
-// 	res, _ := StringSum(str)
-// 	rst, _ := fmt.Printf("%T", res)
-// 	if rst != "string6" {
-// 		t.Errorf("result is wrong, the result should be 'string6'")
-// 	}
-// }
